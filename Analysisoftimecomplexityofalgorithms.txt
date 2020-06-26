@@ -1,0 +1,117 @@
+
+
+I am writing this article to provide a manual approch to estimate time complexity of the code , this will cover majority of recurrences but reader must know that not every recurrence relation can be solved
+
+so to get the closed for we have to resort to smoothed analysis( well if you want tight upper bound or go for amortized analysis )
+
+A normal recurrence relation can be solved mainly in 3 ways 
+
+1)Substition method →This is basically prove by mathematical induction, here we first guess and then prove  eg recurrence of merge sort is 2T(n/2) +n  , we make induction that T(n)=O(nlogn) then 
+
+T(n)<=2c(n/2)log(n/2) +n/2  => cnlogn - cnlog2 +n   =>max nlogn
+
+But its only useful when obviously we can guess and chances are we may end up with upper limit and higher constants than expected so we resort to recurrence tree or finally master theorem
+
+2)Recurrence theorem
+
+T(n)= T(n/4)+ T(n/2)+n^2
+
+The solution its to keep on breaking it smaller and smaller until a series is formed(if formed)  and then Big O is the complexity
+
+T(n)= T(n/16)+T(n/8)+n^2/16+ T(n/8)+T(n/4)+n^2/4+n^2
+
+etc its a clear geometric progression
+
+=n^2 *some constant so complexity n^2
+
+3)Master theoreom:→ Solving a recurrence relation means to find a closed form for the relation.Now master's theorem can be used for specific recurrence relations only that holds following conditions:-
+
+1)relation is form a T(n/b)+ f(n) where a>=1 and b>1 so 2(T/3)+ n, T/3+n is valid but 2(T)+n is not!
+
+2)Relation is montone, f(n) =sin n or n/log n is not admissible
+
+Once we establish this  :
+
+There are only 3 cases which must be remembered
+
+but first calculate Logba 
+
+now calculate time complexity of f(n) , since f(n) is not recurrence highest power of n is its complexity, lets call it c
+
+1) if c<Logba then T(n)= O(nLogba)
+
+2)if c=Logba then T(n)= O(ncLog n), even though I specified monotone if f(n) is of form n^p*log^q n it can be solved, O(ncLogq+1n)
+
+3)if c>Logba then T(n)=O(f(n))
+
+eg.
+
+1)lets see this relation 2(T/3)+n  , 
+
+first
+
+Log 2 base 3 =0.301/0.477 =0.63 
+
+c=O(f(n)= 1
+
+so c>Log 2 base 3 hence T(n)=O(n) {3rd case }
+
+This one is actually a little obvious since if c is greater then obviously f(n) has highest power or order
+
+2)now lets see recurrence for merge sort: 2T(n/2)+n
+
+here Log 2 base 2= 1
+
+c=1
+
+c=Log 2 base 2
+
+hence T(n)= O(n^1 Log n)  (2nd case)
+
+binary search T(n/2)+O(1)
+
+case 2, c=0, Log 1 base 2=0
+
+O(n^0Log n)= Log(n) 
+
+3)
+
+how about 3T(n/2)+n
+
+here log 3 base 2=1.58
+
+c=1
+
+c<log 3 base 2
+
+hence T(n)= O(n Log 23
+
+=O(n^1.58)    (one of the times when master theorem is the best methods)!!!
+
+4)Binets formula- If you are still reading it and you are fan of Dan brown(tbh origin was not worth it) this one might interest you .The golden ratio! yes
+
+
+
+How are you planning to solve this
+
+its very easy,  just divide by r^n and eqn becomes r^2-r-1=0 , g((1+sqrt5)/2)^n + k(1-sqrt5/2) this is the complexity ,, (1+sqrt5)/2=1.618.......etc
+
+no need of formula
+
+5)Akra Bazzi
+
+Alright we are going a little advance now
+
+This is modification(generalisation) over existing Master method where recurrence can be of form  a1 T(b1 x)+a2 T(b2 x)+...... + f(x)
+
+eg T(x)= 2T(x/4)+ 3T(x/6) + O(xlogx) 
+
+ok so I will not bore with formula
+
+look at power of monotone in f(x) its 1 power of x before log x, call it p
+
+formula is O( x^p (1 + integration(1 to x) (f(u) /up+1d(u))
+
+so in our case O(x(1+integration (xlogx/x^2 -0)   = O(x(1+log 2x-1)
+
+Ok thats it 
