@@ -1,4 +1,9 @@
+
+Exercise question:https://www.codechef.com/problems/DISHOWN
+Exercise solution:https://www.codechef.com/viewsolution/34737568
+
 //modified initialize function:
+
 void initialize( int Arr[ ], int N)
 {
     for(int i = 0;i<N;i++)
