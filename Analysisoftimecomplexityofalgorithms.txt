@@ -1,4 +1,4 @@
-
+﻿
 
 I am writing this article to provide a manual approch to estimate time complexity of the code , this will cover majority of recurrences but reader must know that not every recurrence relation can be solved
 
@@ -34,13 +34,13 @@ Once we establish this  :
 
 There are only 3 cases which must be remembered
 
-but first calculate Logba 
+but first calculate Log base b (a) 
 
 now calculate time complexity of f(n) , since f(n) is not recurrence highest power of n is its complexity, lets call it c
 
-1) if c<Logba then T(n)= O(nLogba)
+1) if c<Logba then T(n)= O(nLog baseb (a))
 
-2)if c=Logba then T(n)= O(ncLog n), even though I specified monotone if f(n) is of form n^p*log^q n it can be solved, O(ncLogq+1n)
+2)if c=Logba then T(n)= O(n^c Log n), even though I specified monotone if f(n) is of form n^p*log^q n it can be solved, O(ncLogq+1n)
 
 3)if c>Logba then T(n)=O(f(n))
 
@@ -84,7 +84,7 @@ c=1
 
 c<log 3 base 2
 
-hence T(n)= O(n Log 23
+hence T(n)= O(n Log base2 (3))
 
 =O(n^1.58)    (one of the times when master theorem is the best methods)!!!
 
@@ -110,7 +110,7 @@ ok so I will not bore with formula
 
 look at power of monotone in f(x) its 1 power of x before log x, call it p
 
-formula is O( x^p (1 + integration(1 to x) (f(u) /up+1d(u))
+formula is O( x^p (1 + integration(1 to x) (f(u) /u^(p+1)d(u))
 
 so in our case O(x(1+integration (xlogx/x^2 -0)   = O(x(1+log 2x-1)
 
