@@ -1,0 +1,44 @@
+Sort
+sort(v.begin(),v.end())
+sort(arr,arr+n)
+sort(arr,arr+n,greater<int>) //descending
+sort(v.rbegin(),v.rend())
+
+comparator for sort
+any bool function
+struct S{
+int start,end;};
+
+own comparator
+bool compare(S x,S y){
+  return (x.start<y.start);
+} 
+main()
+S arr[]={{6,8},{1,9},{2,4}};
+int n=sizeof(arr)/sizeof(arr[0]);
+sort(arr,arr+n,compare);
+
+lower_bound(arr,arr+n,x) return index of first element which is equal to x
+upper_bound(arr,arr+n,x) return index of first element which is just greater than x;
+
+Functor-> a c++ class that acts like a function.To create functor we overload operator()
+stable_sort -> like sort but for equal values the relative order is preserved
+eg of functor classes
+class compare { 
+private: 
+    int num; 
+  
+public: 
+    compare(int n):num(n){} 
+   
+  
+    // Overloads () operator to perform 
+    // the desired comparison 
+    int operator()(int arr_num1, int arr_num2) 
+    { 
+        return abs(num - arr_num1) < 
+                          abs(num - arr_num2); 
+    } 
+};
+stable_sort(arr, arr + n, compare(k)); 
+
