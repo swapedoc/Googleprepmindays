@@ -1,0 +1,13 @@
+substring
+subsequence
+subset
+
+
+for string "abcdef"
+a substring is continuous stream of characters: hence "bcd" is a substring but "bde" is not
+
+a subsequence is non continuous stream but here order is maintained , hence bcd, bde are subsequence but ebd is not , because order is not maintained
+
+subset is any character in any order  hence bcd,bde,ebd are subset
+
+all substring are subsequence and all subsequence are subset

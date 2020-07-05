@@ -97,4 +97,5 @@ function cocktailSort(a) {
 }
 
 
+count sort in 1 pass will keep count of each element in hash , then creates new array
 

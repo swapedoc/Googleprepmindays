@@ -32,3 +32,4 @@ bool empty(){
 	return top<0;
 }
 };
+
