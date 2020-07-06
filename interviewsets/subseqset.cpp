@@ -18,3 +18,24 @@ int main() {
 	gensubset(output,s);
 	return 0;
 }
+
+
+//using bit
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	char ar[]={'a','b','c'};
+	int n;
+		cin>>n;
+	    int tot=1<<n;
+		for(int i=0;i<tot;i++){
+			for(int j=0;j<n;j++){
+				if(i&(1<<j)){cout<<ar[j];}    ///  (0,10,11,100,101,110,111)get matched to(01,10,100),based on what is set we take values
+			}
+			cout<<endl;
+		}
+	
+	return 0;
+}
