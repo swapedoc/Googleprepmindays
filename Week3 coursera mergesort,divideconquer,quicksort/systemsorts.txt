@@ -1,0 +1,5 @@
+system sort uses intro sort
+combination of quicksort, heapsort and insertion sort
+sort() does not use unsafe void pointers like qsort().
+qsort() makes large number of function calls for comparison function compared to sort().
+C++ code with sort() is relatively faster than code with qsort().
