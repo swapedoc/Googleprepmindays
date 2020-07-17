@@ -43,7 +43,7 @@ int main(){
 
 
 \\Quickselect
-\\Find kth largest element in array
+\\Find kth largest element in array (o(n) avg but can go n^2 worst
 
 int quickselect(int arr[],int k){
 	unsigned seed=0;
