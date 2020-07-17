@@ -1,0 +1,30 @@
+
+Symbol  table has 
+<< "Identifier's Name:" << identifier 
+             << "\nType:" << type 
+             << "\nScope: " << scope 
+             << "\nLine Number: " << lineNo << endl; 
+
+
+    int hashf(string id); // hash function 
+    bool insert(string id, string scope, 
+                string Type, int lineno); 
+  
+    string find(string id); 
+  
+    bool deleteRecord(string id); 
+  
+    bool modify(string id, string scope, 
+
+class Node{
+friend class Symbol Table;}
+class SymbolTable { 
+    Node* head[MAX]; 
+  
+
+Web tracking. Suppose that you are tracking nn web sites and mm users and you want to support the following API:
+
+User visits a website.
+How many times has a given user visited a given site?
+What data structure or data structures would you use?
+Maintain symbol table of symbol tables
