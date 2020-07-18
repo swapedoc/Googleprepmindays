@@ -1,0 +1,6 @@
+2-3 tree
+means 2 key 3 children every node
+its a form of bst
+all operations are o(logn)
+only case when height of tree increases during insertion is , when parent has 3 node and 4 children
+Since all rotations are complex to perform we dont really use this but it is used to understand red black trees

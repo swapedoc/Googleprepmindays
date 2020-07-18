@@ -1,0 +1,13 @@
+1d range search
+Need Ds that can do:-
+Range count: logN
+Range search: R+long N
+Insert:log N;
+
+Solution use bst:
+for range count:
+find ranks for both nodes , subtract and +1(if one node is subof another)
+else just subtract ranks
+
+range search:
+find keys in left, current and right 

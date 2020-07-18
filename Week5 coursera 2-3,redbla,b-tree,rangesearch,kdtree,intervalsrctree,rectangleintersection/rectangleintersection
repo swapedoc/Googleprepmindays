@@ -1,0 +1,5 @@
+for overlapping rectangles
+
+Do interval search + sweep line 
+, so all opn will be n logn
+and interval search nlogn+ rlogn
