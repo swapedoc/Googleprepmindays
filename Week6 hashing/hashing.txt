@@ -1,0 +1,37 @@
+Horner's method of checking two strings =(also known as polynomial hashing)
+General method=
+(s[0]*A^(n-1)+s[1]*A^(n-2)+.....s[n-1])mod B
+HORNER Uses a=31
+
+for(i=0;i<length();i++)
+hash=s[i]+hash*31;
+return hash
+
+String s = "call";
+int code = s.hashCode();   3045982 = 99·313 + 97·312 + 108·311 + 108·310
+ = 108 + 31· (108 + 31 · (97 + 31 · (99)))
+(Horner's method)
+
+While doing modulus be careful that hashcode is positive
+one way is to make hascode positive by using abs
+another bettwer way is to use  0x7fffffff (hexadecimal).
+which is Conversion. Decimal. 2147483647. Binary. 1111111111111111111111111111111
+this is a bitmask which is used to clear out bits in register. anding with this sets signed bit to 0
+since signed bit is 0 , number will always be positive
+
+signed -unsigned->furthest digit over to left tells whether number is positive or negative , if 0 positive else negative
+
+to avoid collision take A and B large near 10^9 andbetter take multiple B , so if collision can detect accurately
+
+birthday paradox:-In probability theory, the birthday problem or birthday paradox concerns the probability that, in a set of n randomly chosen people, some pair of them will have the same birthday. By the pigeonhole principle, the probability reaches 100% when the number of people reaches 367 (since there are only 366 possible birthdays, including February 29). However, 99.9% probability is reached with just 70 people, and 50% probability with 23 people
+tosolve 
+for person chance for bday=1
+for person 2 , chance for bday not colliding 364/365
+person 3 , should not have p1 and p2 date so 363/365  
+for 23 : 365*364....343/(365)^223 = 0.4927 
+so 1-0.4927=0.507297 so 50 percent chance of matching
+
+Open addressing :- In this all values are stored in table itself so table should be big enough;
+Double hasing =part of open addressing
+(hash1(key) + i * hash2(key)) % TABLE_SIZE
+

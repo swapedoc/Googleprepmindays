@@ -1,0 +1,22 @@
+one way has function md4, md5, sha0 
+hashing not good for critical things like air traffic , pacemaker etc where red black will prove better
+
+if someone knows hash function he can do ddos attack
+
+seperate chaining -less prone to clustering
+linear probing-> less space wasted
+
+2 probe hasing -hash to two positions , insert key in shorter of 2 chains
+reduces length to log log n
+
+double hashing: -to remove clustering
+use linear probing but not skip 1 , variable number each time
+delete is difficult to implement
+
+Cuckoo hashing - hash to two positions if one is occupied go into another
+
+Nowadays little extra memory is ok
+
+main reason to use hash table instead of rb tree is : they have better performance in practic e on typical inputs
+
+
