@@ -1,0 +1,14 @@
+Early Binding (compile-time time polymorphism) As the name indicates, compiler (or linker) directly associate an address to the function call. It replaces the call with a machine language instruction that tells the mainframe to leap to the address of the function.fn overloading , operator overloading
+
+
+Late Binding(virtual functions)->binds object at runtime
+(by doing the virtual function)
+done by function overriding
+base *bp;
+derived d;
+bptr= &d;
+
+virtual functions do late binding , lookup table,static array which compiler creates at compile time
+*_vptr
+
+what does malloc return

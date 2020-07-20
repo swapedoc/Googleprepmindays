@@ -1,0 +1,7 @@
+euler tour -> cycle that uses each edge exactly once
+hamilton tour->cycle that uses each vertex exactly once
+mst-best way to connect all vertices
+connectivity->is there way to connect all vertices of graph
+biconnectivity->>is there a vertex whose remove disconnect graph
+planarity->draw graph without crossing edges
+graph isomerism->do two adjacency lists represent same graph

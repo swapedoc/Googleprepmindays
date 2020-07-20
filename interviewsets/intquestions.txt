@@ -1,0 +1,3 @@
+,find all set bits in stream of bits , find happy number, product array puzzle, inorder successor in tree,
+total paths when going from bottom to top , when i>=j,infix to postfix, low level design,
+find number in rotated array special case [1,2];

@@ -32,6 +32,9 @@ for 23 : 365*364....343/(365)^223 = 0.4927
 so 1-0.4927=0.507297 so 50 percent chance of matching
 
 Open addressing :- In this all values are stored in table itself so table should be big enough;
-Double hasing =part of open addressing
+Types:
+1)linear probing
+(hash+i)%size
+2)Double hasing =part of open addressing
 (hash1(key) + i * hash2(key)) % TABLE_SIZE
-
+3)quad probing=(hash+i*i)%table
