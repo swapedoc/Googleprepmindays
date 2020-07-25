@@ -1,0 +1,16 @@
+Dynamic programming , backtracking (permutation,pruning ,meetin middle), fenwick tree, maths ->square root , newton method , probability, combinatorics-,avl trees, integer multiplication (karatsuba),strassen,bit manipulation,scheduling(Greedy)
+Order statistics:-lesson 9 udacity
+Amortized analysis:
+two pointer method, nearest smaller elements, sliding window maximum
+2SAT-3SAT lesson 14 udacity
+manacher
+Range queries:RMQ- binary index tree , segment tree
+prime factor , modular arithmetic , solving equation , other results
+matrices:operation , linear recurrence , graph and matrices
+GAme theory->
+Geometry:-
+String-?Z algorithm
+closest pair problem:sweep line 
+heavy light decomposition
+LCA, 
+schedules,josephus

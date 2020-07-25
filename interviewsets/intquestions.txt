@@ -1,3 +1,11 @@
 ,find all set bits in stream of bits , find happy number, product array puzzle, inorder successor in tree,
 total paths when going from bottom to top , when i>=j,infix to postfix, low level design,
 find number in rotated array special case [1,2];
+2 strings:min char total to be deleted to make them equal =l1-lcs+l2-lcs;
+https://github.com/rabiulcste/data-structure
+Shortest Word Edit Path
+Given two words source and target, and a list of words words, find the length of the shortest series of edits that transforms source to target.
+
+Each edit must change exactly one letter at a time, and each intermediate word (and the final target word) must exist in words.
+
+If the task is impossible, return -1.
