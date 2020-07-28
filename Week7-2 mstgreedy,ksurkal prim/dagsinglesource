@@ -1,0 +1,22 @@
+not writing code,
+
+basically a linear algorithm which can take negative edges too. 
+First calculate topological sort, then just update edges by checking all outgoing edges complexity O(v+e)
+topological topological =new topological (g);
+for(int v:topological.order()_
+for(directec edge e:G.adj(v)
+relax(e)
+
+linear complexity O(e+v)
+
+seam finding can be done(to resize image)
+
+Longest path in edge waited dag:-
+to do this negate all weights
+find shortest paths
+negat weights inresult
+This works because topological graphs dont care about weights (works even with negative weights)
+
+parallel job scheduling:
+given set of jobs with duration and precedence constraings schedule jobs( by finding start time ) soas toreceive minimum completion time while respecting constraings
+linear (critical path method)

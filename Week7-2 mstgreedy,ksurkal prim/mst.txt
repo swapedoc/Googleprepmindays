@@ -1,0 +1,8 @@
+minimum spanning tree- minimum path in weighted graph 
+cut vertex-?if you remove that vertex G-v has more connected components then it did before
+min weight crossing edge is in cut
+To find MST we use greedy algorithms
+Basically 3 methods
+1)Kruskal 
+2)Prims
+3)Boruvka

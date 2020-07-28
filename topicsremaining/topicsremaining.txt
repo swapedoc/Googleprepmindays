@@ -14,3 +14,8 @@ closest pair problem:sweep line
 heavy light decomposition
 LCA, 
 schedules,josephus
+ackermann
+voronoi diagram(dolonoi triangulation)
+fibonacci heap
+indexed heap
+minimum-weight feedback-edge set (MWFES).-do kruskal on max weights instead

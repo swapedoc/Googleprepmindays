@@ -1,0 +1,13 @@
+3 types 
+1)source to destination
+2)single source: from one vertex to all //most common
+3)all pairs: between all pairs
+
+Edge weights
+1) non negative
+2)random weights
+3)euclidean weights
+
+cycles:assumption(no direction cycle, no negative cycles)
+allow self loop and parallel edges
+representation like directed graph , better create structure to handle
