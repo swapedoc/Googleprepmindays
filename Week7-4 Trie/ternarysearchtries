@@ -1,0 +1,4 @@
+basically this is  like a binary search tree except it has three children
+and stores characters so its a trie
+
+while search , search node, then mid then go right or left etc
