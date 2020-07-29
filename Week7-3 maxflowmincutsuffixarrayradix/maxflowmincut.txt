@@ -1,0 +1,12 @@
+In the minimum cut problem, our task is to remove a set of edges from the graph
+such that there will be no path from the source to the sink after the removal and
+the total weight of the removed edges is minimum.
+Maximum flow
+In the maximum flow problem, our task is to send as much flow as possible
+from the source to the sink. The weight of each edge is a capacity that restricts
+the flow that can go through the edge. In each intermediate node, the incoming
+and outgoing flow has to be equal.
+
+the maximum size of a flow and the minimum size
+of a cut are the same in the above example. It turns out that a maximum flow
+and a minimum cut are always equally large,
