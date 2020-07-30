@@ -7,7 +7,7 @@
 etc
 first initialise next to null take a pointer to structer// we take pointer to structure so we get address of structure thus making it easy to do operation
 while inserting create new node,find length of string to be inserted , once done set a marker, using endmark variable,this will be used to search efficiently , while deleting , we have to delete everything , first del next entries for ucrrrent , then del curr
-//used in prefix matches,longest prefix
+//used in prefix matches,longest prefix//iterate all keys in sorted order
 #include <bits//stdc++.h>
 
 using namespace std;
@@ -54,6 +54,8 @@ void del(node *cur)
         if(cur->next[i])
             del(cur->next[i]);
     delete(cur);
+	//if not last char 
+	//then will have to use recursion and recur for child using asii value, send depth to handle
 }
 
 int main()
@@ -81,3 +83,8 @@ int main()
     del(root);
     return 0;
 }
+
+//patricia tree: trie +path compressing
+//suffix tree: linear time construction, patricia trie of suffixes of string(ukkonen algorithm , not covering, fcking hard makes me cry)
+
+  

@@ -1,3 +1,4 @@
+articulation point=cutvertex
 euler tour -> cycle that uses each edge exactly once
 hamilton tour->cycle that uses each vertex exactly once
 mst-best way to connect all vertices
