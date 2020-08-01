@@ -1,0 +1,30 @@
+earlier DFA was thought to be strongest
+
+but then since we can create dfa on our own using a java program ,
+later turing did it ,and people found out that turing machine can solve everything. we only found that all are equivalent but nobody beat turing
+
+:-What algorithms are useful in practice :measure running time as function of input(efficient if polynocial time)
+problem is intractable if it cant be solved in polynomial time
+
+TSP is one such problem n!
+ilp,sat,factor to non trivial number-> not sure if polynomial
+P vs NP ->P is polynoimial time
+NP-> non deterministic polynomial time
+non deterministic machine can "guess"  the desired solution-
+Non deterministic machines have more than one possible next state
+Steiner tree ? not sure
+P->search problem in polynomical time 
+np=class of problems which seem wickedly hard
+NP complete:-hardest problems in np
+intractable-problems with no polytime algorithms
+if you could solve any of the np problem in polynomial time then you can solve all problems in polynomial time
+any NP-complete problem is solvable in polynomial time if and only if P=NP.
+If problem X polynomial-time reduces to problem Y,implies that if Y can be solved in polynomial time, then so can X.
+hamilton path-each vertex once is np complete
+3 color np complete
+travelling salesperson problem is to find a simple cycle that visits every vertex and has minimum total weight
+dijkstra tells single source shortest path however it doesnt tell shortest path to visit all vertices
+
+in a tsp we travel all points only once to reach teh shortest path
+
+dijkstra tells hosrtest path from one vertex to another but not the shortest path to travel all vertices 

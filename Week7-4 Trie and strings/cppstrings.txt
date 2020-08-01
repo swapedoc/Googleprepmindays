@@ -135,5 +135,15 @@ stof also there
 
 since stl function they throw proper errors while atoi etc return 0
 
+string find
+size_t find (const char *str, size_t pos, size_t n);
+from which pos till , no of characters to match
+    // Only search first 5 characters of "geeks.practice"  and 2 occurences
+    size_t found = str.find("geeks.practice", 0, 5); 
+    if (found != string::npos) 
+        cout << found << endl; 
+	found=str.find("geeks.practice",found+1,5);
+    if(found!=string::npos) 
+    cout<<found<<endl;	
 										   
 										  
