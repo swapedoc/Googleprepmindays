@@ -1,22 +1,24 @@
-Dynamic programming , backtracking (permutation,pruning ,meetin middle), fenwick tree, maths ->square root , newton method , probability, combinatorics-,avl trees, integer multiplication (karatsuba),strassen,bit manipulation,scheduling(Greedy)
-Order statistics:-lesson 9 udacity
+Dynamic programming , backtracking (permutation,pruning ,meetin middle), fenwick tree, maths ->square root , newton method,avl trees, integer multiplication (karatsuba),strassen,bit manipulation,scheduling(Greedy)
+
 Amortized analysis:
 two pointer method, nearest smaller elements, sliding window maximum
 2SAT-3SAT lesson 14 udacity
 manacher
 Range queries:RMQ- binary index tree , segment tree
-prime factor , modular arithmetic , solving equation , other results
+
 matrices:operation , linear recurrence , graph and matrices
-GAme theory->
-Geometry:-
+
 String-?Z algorithm
-closest pair problem:sweep line 
+ 
 heavy light decomposition
 LCA, 
 schedules,josephu
 ackermann
 voronoi diagram(dolonoi triangulation)
 fibonacci heap
-indexed heap
-minimum-weight feedback-edge set (MWFES).-do kruskal on max weights instead
-A* algorithm
+binary indexed heap
+
+
+manacher's algorithm
+
+
