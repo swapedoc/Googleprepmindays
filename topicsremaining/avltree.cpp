@@ -1,4 +1,4 @@
-Dynamic programming , backtracking (permutation,pruning ,meetin middle), fenwick tree or binary indexed trees , ),strassen,bit manipulation,scheduling(Greedy)
+Dynamic programming , backtracking (permutation,pruning ,meetin middle), fenwick tree, maths ->avl trees, integer multiplication (karatsuba),strassen,bit manipulation,scheduling(Greedy)
 
 Amortized analysis:
 two pointer method, nearest smaller elements, sliding window maximum
@@ -15,7 +15,7 @@ LCA,
 josephu
 
 
-
+binary indexed heap
 
 
 

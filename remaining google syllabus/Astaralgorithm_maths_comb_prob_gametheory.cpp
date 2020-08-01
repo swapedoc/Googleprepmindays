@@ -286,3 +286,55 @@ G(3)=3
 
 trick is to reach a 0 state and give it to other 
 might need to combine mex with xor if games are independent (becomes nim)
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Ackermann function
+The function which is not primitive recursive meaning no matter what you do you cant write it using iterative method
+int ack(int m, int n) 
+{ 
+    if (m == 0){ 
+        return n + 1; 
+    } 
+    else if((m > 0) && (n == 0)){ 
+        return ack(m - 1, 1); 
+    } 
+    else if((m > 0) && (n > 0)){ 
+        return ack(m - 1, ack(m, n - 1)); 
+    } 
+} 
+for nonnegative integers only^
+
+time complexity O(m,A(m,n)) no idea how much it can go
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+newtons method to calculate root
+tan theta = f(x)/x-x0     tan theta= f'(X)
+x=xo-fx/f'x 
+replace fx with x^2-n 
+keep on continueing this
+start from x=1 , keep calculating fx , keep changing x as fx , once fx and x diff becomes less than epsilon
+return x
+xxxxxxxxxxxxxx
+karatsuba multiplication divides nummebrs into three parts and recursively calculate each
+ab *cd => (10a+b )*(10c+d)=> 100ac+10(ad+bc)+bd  , 
+ac and ad are two multiplications that we will recursively calculate
+for ad +bc we can write them as (a+c)(b+d) =which on subtracting with ac and ad gives us ad+bc
+
+so our three multiplications are ac,ad  and (a+c)(b+d)
+
+xXXXXXXXXXXXXXXXXXXXXXXX
+another method of multiplication (for matrices)is strassen , uses divide and conquer ,sends n/2 recurse sizes ,every time to calculate matrix multiplation
+normal O(n^3) strassen n^2.8
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+To calculate total spanning trees in undirected graph we can use kirchoff theorem
+step 1 : create laplacian matrix
+     1 2 3              
+   1 
+   2
+   3
+    for 1,1 ; 2,2 value will be indegree of 1; 2 etc, for 1,2 ;2,3 etc value will be -1 if 2-3 is an edge and 0 if they are not connected 
+
+Step 2: after laplacian is made ,remove first row and first column and calculate determinant of resultant matrix
+that is the answer
+determinant signs +,-,+ .....
