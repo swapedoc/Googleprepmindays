@@ -1,3 +1,4 @@
+check from last char of pattern to first , if it doesnt match string just skip to next char(since -1 so j-(-1) is j+1,if there is match 
 #include <iostream>
 #include <vector>
 using namespace std;

@@ -122,6 +122,7 @@ Result using accumulate with pre-defined function: -29
 
 To convert multi digit string to number
 auto mult = number[0] == '-' ? -1 : 1;
+auto mult = number[0] == '-' ? -1 : 1;
 auto realBegin = mult > 0 ? begin(number) : next(begin(number));
 auto toInt = mult * accumulate(realBegin, end(number), 0, [](int curr, char nxt){
    return curr * 10 + nxt - '0';

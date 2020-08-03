@@ -26,5 +26,5 @@ travelling salesperson problem is to find a simple cycle that visits every verte
 dijkstra tells single source shortest path however it doesnt tell shortest path to visit all vertices
 
 in a tsp we travel all points only once to reach teh shortest path
-note that 2 sat is doable using bipartite matching
+note that 2 sat is doable using bipartite matching
 dijkstra tells hosrtest path from one vertex to another but not the shortest path to travel all vertices 
