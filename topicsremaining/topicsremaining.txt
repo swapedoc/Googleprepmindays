@@ -1,17 +1,5 @@
-Dynamic programming , backtracking (permutation,pruning ,meetin middle), , ),bit manipulation,scheduling(Greedy)
+Dynamic programming , backtracking (permutation,pruning ,meetin middle), , ),bit manipulation,
 
-
-2SAT-3SAT lesson 14 udacity
-manacher
-
-
-
-
-String-?Z algorithm
- 
-heavy light decomposition
-LCA, 
-josephu
 
 
 
