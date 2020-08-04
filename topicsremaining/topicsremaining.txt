@@ -1,4 +1,4 @@
-Dynamic programming , backtracking (permutation,pruning ,meetin middle), , ),bit manipulation,
+Dynamic programming , backtracking (permutation,pruning ,meetin middle), , ),
 
 
 
