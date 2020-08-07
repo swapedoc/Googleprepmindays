@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int n;
+cin>>n;
+int val=1;
+for(int i=1;i<=n;i++){
+	val=((val%1000000007)*2)%1000000007;
+}
+cout<<val;
+
+}

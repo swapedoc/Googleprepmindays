@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+string s;
+cin>>s;
+long long arr[26]={};
+for(char c:s){
+	++arr[c-'A'];
+}
+int value=0;
+//for(auto c:arr)
+//cout<<c;
+for(long long i=0;i<26;i++){
+if(arr[i]%2!=0)value++;}
+//cout<<value<<endl;
+if(value>1){
+	cout<<"NO SOLUTION";
+	return 0;
+}
+
+long long n=s.length();
+long long start=0,end=n-1;
+long long oddindex=-1;
+string blanks;
+for(long long i=0;i<26;i++){
+	if(arr[i]==0)continue;
+	if(arr[i]%2==0){
+	long long half=arr[i]/2;
+
+	for(int j=0;j<half;j++)
+	blanks+=(char)('A'+i);}
+ }
+ cout<<blanks;
+ for(long long i=0;i<26;i++){
+	if(arr[i]%2!=0){
+    for(int j=0;j<arr[i];j++)
+	cout<<(char)('A'+i);}
+ }
+ reverse(blanks.begin(),blanks.end());
+ cout<<blanks;
+ }

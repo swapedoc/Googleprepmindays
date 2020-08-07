@@ -1,0 +1,33 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+/*
+bool recurse(ll x,ll y){
+	ll res[x+1][y+1];
+	for(ll i=0;i<=x;i++){
+	for(ll j=0;j<=y;j++){
+	if(i==0||j==0)
+	res[i][j]=0;}}
+    res[2][1]=1;
+	res[1][2]=1;
+	res[0][0]=1;
+	for(ll i=2;i<=x;i++){
+	for(ll j=2;j<=y;j++){
+	res[i][j]=res[i-1][j-2]||res[i-2][j-1];
+	}
+	}
+	return (res[x][y]!=0?true:false);
+}*/
+int main(){
+	ll n;
+	cin>>n;
+	while(n--){
+		ll x,y;
+		cin>>x>>y;
+		cout<<((x+y)%3==0&&2*x>=y&&2*y>=x?"YES":"NO")<<"\n";
+	}
+}
+//we need O(1) solution because of inputs
+

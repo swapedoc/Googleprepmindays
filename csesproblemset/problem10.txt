@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(){
+ll n;
+cin>>n;
+int ans=0;
+for(int i=1;i<20;i++)
+ans+=(n/pow(5,i));
+cout<<ans;
+return 0;
+}

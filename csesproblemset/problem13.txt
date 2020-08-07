@@ -1,0 +1,28 @@
+//assign not only assigns new values but can also modify size of vector 
+//next_permutation is obviously another way but its for the weak
+#include<bits/stdc++.h>
+using namespace std;
+vector<string>result;
+void backtrack(string s,int start){
+if(start==s.size())
+result.push_back(s);
+for(int i=start;i<s.length();i++){
+swap(s[i],s[start]);
+backtrack(s,start+1);
+}
+}
+int main(){
+string s;
+cin>>s;
+int n=s.length()-1;
+backtrack(s,0);
+
+sort(result.begin(),result.end());
+std::set<std::string> const uniques(result.begin(), result.end());
+result.assign(uniques.begin(), uniques.end());
+cout<<result.size()<<endl;
+for(auto c:result){
+cout<<c<<endl;
+}
+return 0;
+}

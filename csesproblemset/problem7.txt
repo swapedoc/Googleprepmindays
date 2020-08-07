@@ -1,0 +1,15 @@
+//n^2 places  to chose for knight1 and n^2-1 for knight 2, since knight 1 and knight 2 are identical we divide by 2
+//next in a 2x3 square there are 2 ways to place a knight , same for 3x2
+//no of 2x3 rectanges in n*n grid =(n-1)(n-2) , and 3x2=(n-2)(n-1)
+//so total non attacking ways = n^2(n^2-1)/2- 2(n-1)(n-2)+2(n-2)(n-1)  
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+int main(){
+ll n;
+cin>>n;
+if(n>=1)cout<<"0"<<endl;
+for(ll i=2;i<=n;i++)
+	cout<<((i*i)*(i*i-1))/2 -2*(i-1)*(i-2)-2*(i-2)*(i-1)<<endl;
+}

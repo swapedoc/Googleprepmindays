@@ -1,0 +1,98 @@
+/*#include<bits/stdc++.h>
+using namespace std;
+void printsets(vector<int>v1,vector<int>v2){
+	cout<<"YES"<<endl;
+	cout<<v1.size()<<endl;
+	cout<<v1[0];
+	for(int i=1;i<v1.size();i++)
+	cout<<" "<<v1[i];
+	cout<<endl;
+	cout<<v2.size()<<endl;
+	cout<<v2[0];
+	for(int i=1;i<v2.size();i++)
+	cout<<" "<<v2[i];
+	cout<<endl;
+	
+}
+bool findsets(vector<int>arr,vector<int>&v1,vector<int>&v2,int sum1,int sum2,int pos){
+if(pos==n){
+	if(sum1==sum2){
+		printsets(v1,v2);
+		return true;
+	}
+	return false;
+}
+v1.push_back(arr[pos]);
+bool res=findsets(arr,n,v1,v2,sum1+arr[pos],sum2,pos+1);
+if(res)
+return res;
+v1.pop_back();
+v2.push_back(arr[pos]);
+res=findsets(arr,n,v1,v2,sum1,sum2+arr[pos],pos+1);
+if(res==false)
+	if(!v2.empty())v2.pop_back();
+return res;
+}
+bool ispartition(vector<int>arr,int n){
+int sum=0;
+for(int i=0;i<n;i++)
+sum+=arr[i];
+if(sum%2!=0) return false;
+vector<int>v1,v2;
+return findsets(arr,n,v1,v2,0,0,0);
+}
+int main(){
+int n;
+cin>>n;
+vector<int>arr;
+for(int i=1;i<=n;i++)
+arr.push_back(i);
+if(!ispartition(arr,n))cout<<"NO";
+
+}*/
+
+//backtracking is 2^n wont work for 10^6 inputs
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+int main(){
+ll n;
+cin>>n;
+vector<int>v1,v2;
+if(n*(n+1)/2%2){
+	cout<<"NO";
+	return 0;
+}
+if(n%4!=0){
+    
+	v1.push_back(1);
+	v1.push_back(2);
+	v2.push_back(3);
+}
+else{
+	v1.push_back(1);
+	v1.push_back(4);
+	v2.push_back(3);
+	v2.push_back(2);
+}
+int offset;
+if(n%4!=0)offset=3;
+else offset=4;
+//since 1 and 1+2 sum is odd ,n=1,n=2 is covered previously
+for(int i=0;i<(n-1)/4;i++){
+v1.push_back(4*i+1+offset);
+v1.push_back(4*i+4+offset);
+v2.push_back(4*i+2+offset);
+v2.push_back(4*i+3+offset);
+}
+cout<<"YES\n";
+cout<<v1.size()<<endl;
+for(auto itr:v1)
+cout<<itr<<" ";
+cout<<"\n";
+cout<<v2.size()<<"\n";
+for(auto itr:v2)
+cout<<itr<<" ";
+cout<<"\n";
+}

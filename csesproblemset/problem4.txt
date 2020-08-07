@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+int main(){
+	ll n;
+	cin>>n;
+	ll arr[n];
+	for(int i=0;i<n;i++)
+	cin>>arr[i];
+	ll max_so_far=arr[0];
+	ll val=0;
+	for(int i=1;i<n;i++){
+		if(arr[i]<max_so_far){val+=max_so_far-arr[i];}
+		else
+		{
+		max_so_far=arr[i];
+		}
+	}
+	cout<<val<<endl;
+}
