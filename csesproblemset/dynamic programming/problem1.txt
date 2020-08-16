@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define MOD 1000000007
+ll dp[1000000];
+int main() {
+	int n;
+	cin>>n;
+	dp[0]=1;
+	for(int i=1;i<=n;i++){
+		for(int x=1;x<=min(6,i);x++)
+			dp[i]=(dp[i]%MOD+dp[i-x]%MOD)%MOD;
+	}
+	
+	cout<<dp[n];
+	// your code goes here
+	return 0;
+}
