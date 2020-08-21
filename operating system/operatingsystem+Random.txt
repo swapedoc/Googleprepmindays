@@ -1,0 +1,288 @@
+	operating system/system programming
+
+1)What is the difference between user space and the kernel space?
+
+kernal space
+
+System memory in Linux can be divided into two distinct regions: kernel space and user space. Kernel space is where the kernel (i.e., the core of the operating system) executes (i.e., runs) and provides its services.
+
+Kernel space can be accessed by user processes only through the use of system calls. System calls are requests in a Unix-like operating system by an active process for a service performed by the kernel, such as input/output(I/O) or process creation. An active process is a process that is currently progressing in the CPU, as contrasted with a process that is waiting for its next turn in the CPU. I/O is any program, operation or device that transfers data to or from a CPU and to or from a peripheral device (such as disk drives, keyboards, mice and printers).
+
+user space
+
+User space is that portion of system memory in which user processes run. This contrasts with kernel space, which is that portion of memory in which the kernel executes and provides its services
+
+The kernel is a program that constitutes the central core of a computer operating system. It is not a process, but rather a controller of processes, and it has complete control over everything that occurs on the system. This includes managing individual user processes within user space and preventing them from interfering with each other.
+
+The division of system memory in Unix-like operating systems into user space and kernel space plays an important role in maintaining system stability and security.
+32 bit architecture then 32 bit address space
+
+2)what happens when you do a malloc
+malloc finds some free memory on heap based on sizeof parameter(if we use else the value passed) , marks it used and returns start of memory it just found. free marks used memory as free(
+malloc returns a void * which can be typecasted to address of any block, else returns null
+malloc returns a virtual address because it is actually a wrapper over system calls, system call allocates memory
+inside heap segment
+but then when we want to read it mmu(memory management unit of OS) will raise page fault which basically means there is no physical memory
+OS does mapping from virtual to physical space, process dont know mapping
+malloc is a library call , in linux it calls sbrk
+
+
+3)How is virtual memory translated to physical memory?what is mmu and tlb
+Phycial address is your RAM,memory modules inside esx host is referred as global system memory
+virtual memory is memory controlled by OS, or a hypervisor like vsphere esxi, when workloads access data ,system needs to look up in physical memory  that matches virtual address, this is called memory translation
+
+map virtual to physical we use page tables.a page table has lot of page table entries,PTE contains eg DWORD,based on DWORD entry in page table , we can translate virtual address to physical space (instead of single page entry)
+MMU and tlb
+all translations are done by mmu , it works with tlb to map virtual addres to physical memory layer.page table is in physical memory,so lookup of virtual memory address can be costly, thats when tlb is used
+TLB acts as a cache for MMU,sometimes more than one tlb, to avoid memory latency
+its a cache for page tables,it is part of mmu,and basically reduces access times
+so logical address has virtual page number and offset, offset remains same , virtual page number is translated by looking at TLB ,tlb contains frequent page access mappings(more on tlb miss later), tlb first looks at memory to find page nuber ,if page number is found but data is found not in memory then a page fault is triggered(because translation is not possible for pages not in memory)
+so once we reach physical page number we match it in memory
+in case of tlb miss , we retreive from global memory, if its not there then it will be in storage media(Worst case).
+allocate *p;
+p=(int*)malloc(n*sizeof(int);
+if we dont free, we have digital clock , a listener which periodically allocates memory then usable space decreases
+
+4)What is page fault?how page fault is handled
+A page fault occurs when a program attempts to access data or code that is in its address space, but is not currently located in the system RAM(main memory)
+handling:
+when program doesnt get , control is transferred to OS(during page fault)
+if invalid then abort by looking at pcb
+if just not in memory ,it loads the page from secondary memory or disk
+take empty frame from physial memory,swap it with address, reset page table to indicate page
+->set validbit=v,
+restart the instruction that caused page fault
+
+if there are no free frames? Then we have to do page replacement policy(find some page in memory not in use)
+
+5)virtual memory:
+if programmer can write program more than what is available, then we  execute using virtual memory,allows address spaces to be shared by several processes, more prog running concurrently, I/O neeed less to load or swap the process
+vm-memory map->physical memory-disk
+
+6)Demand paging->when cpu demands for a process p1 ,data present in secondary memory is stored in main memory(swapin-swapout)(does using page fault){cpu transfers control from program to OS)
+paging is a memory management scheme
+
+7)Page replace algortithms - less tlb miss -> 1)FIFO 2)LRU 3) optimal
+
+main memory 7 0 1 2 0 3 0 4
+if page is not found in main memory , its a page fault , so we will have to swap pages from secondary memory
+main memory is full  , then it will replace page , using first in is 7 so we remove it(swapped to disk)
+
+LRU-
+optimal-> look in future , the page which is not used in longest time in future , we replace that page
+
+big endian (not normal, starts from msb or actual addressing index of 0)
+little endian (starts from lsb, or arr[n-1])
+
+8)Why is padding done in structure, what is union, enums: 
+To align the words-Dword largest unit of data that can be accessed in single memory instructurion,in structure if padding is not done , multi paccess,alighnd is usually power of 2
+many compilers provide different padding
+word allocation strategy , first fit, next fit , bets fit
+in union syntax is same and as long as access is not done it works fine ,members share space, only members last written to can be read, sizeof(union) is at least as large as largest member
+
+enums are aliases for integersconsts eg enum Suit{spades=1,diamonds,...}
+
+9)Scopes in a program:
+automatic-till a block
+static-program
+manual - explicit control -malloc/calloc etc, calloc memory set to 0
+
+10) Common memory errors:
+memory leak: Forgetting to free unusued memory after pointer upgrade
+result: steady rise in memory leading to degraded performance
+
+Double free:-freeing same memory location twice, result undefined (depends on stdlib implementation)
+dangling pointer->accessing memory that has been freed,. It can lead to memory corruption when memory allocated for something else
+out of bound->
+
+To run c program
+gcc -g main.cache
+./a.out
+valgrind--leak-check=full
+
+11)Systems calls :open,read ,write, lseek,close
+library management: brk , sbrk
+find , fork
+,tail
+open:used to open file for reading ,writing or both
+int fd=open("foo.txt", O_RDONLY);
+find existing file on disk , crete file table entry ,set first unused file descriptor to point to file table entry
+return -1 upon failure
+etc
+file descripter is int that uniquely identifies open file of process
+file descriptor table:-one fd for each process, 
+file table entry: in memory surrogate: entries maintain file positions
+
+12)How OS knows which system call to execute:-systems provide a libaray or api that sits  between normal programs and OS.in c its usually part of glibc that provides wrapper functions, library puts in proper processor register,fork calls fork system call in turn, directly making system call in program is not trivial and may need knowledge of embedded programming
+eg we can use strace(internally implemented as ptrace )
+a system call does not necesarily require a context switch insteadit is called in constext of whichever process invoked it, 
+in multithreaded system , system calls can be made from multiple threads, handling of them can be done by a single kernel therad or using one to one model (each kernel therad with each user thread)
+
+13)Running a program:-
+step 1:preprocessing: #include <> or #include "" copies contents of file to source file
+searches for file under standard path gcc -I 
+#deinfe
+all instances just copied
+
+step2:compiler has preprocessed source file:-
+it does syntax and type checking
+it produces object file from source file 
+gcc -c main.c (gives main.o)
+
+step3:linkers
+allow combination of multiple files into executables
+use of linker is efficience , we can change one source file , compile  and then relink
+updates all instructions into correct address space ,uses symbol tables to fix things
+
+a.out has text section,heap section:-malloc, free, realloc,and may use brk/sbrk,dll,data section(initialised global and static),bss(uninitialised data)-static and global,size fo symbol table,size of text segment
+stack has recursion calls,text section(code segment) contain machine instructions
+we can use nm ./a.out
+
+by default gcc does dynamic linking,one copy of libary can be mapped to multiple processes
+
+14)What are types of os interactions
+system calls, signals(segfault etc), exceptions(invalid memory address) , interrupts(by hardware such as move mouse)
+eg printf call,trap sent ,dispatch sent , trap code in register,trap to kernel,sys call handler
+
+15)Different types of signals sent
+SIGKILL->kill -9 terminates process
+SIGTERM-normal terminate
+SIGINT- ctrl+c
+sigabrt- abort
+
+16)fork-how it works
+system call that creates a new process identical to calling one
+makes copy of text,data,stack and heap,starts executing on new copy
+uses: to create a parallel program with multiple processes,launch new program using exec
+parent and child run in parallel by running in multiprocessors,
+or by context switching(time sharing)
+One important feature of the fork system call is that the files that were open in the parent process before the fork are shared by the child process after the fork. This feature allows the parent to pass open file handles and device driver handles to th e child.
+else we can use a thread
+if 0 it means child , else parent , n fork 2^(n)-1 child ,1 parent
+
+17)PCB:-data structure containing process context information such as process id,file descriptor,program register ,
+how context switching works : processor maintains all processes in pcb, running , ready blocked
+how dispatcher gains control:- using system calls , interrpus etc
+procfs information about processes,ps -ef
+pragma changs behavior of compiler
+extern only declare variable but not define it so memory is not reserved for the variable
+
+18)difference between parallelism and concurrency
+parllelism- multiple copies of same task, makes sense only in multiprocessing system, for permonance
+concurrent- divides program into multiple generally differnt taks,can make sense in single core too
+
+
+19)Threads and processes
+stream of instructions and their associated state
+shared address space, crash in one crashes entire system
+reentrant code :ability to handle multiple calls to same functions at same time
+
+user level threading: on thread create reserve new stack space using mmap,user level threading libary
+Threads can hog entire cpu , solution is using yield(in which thread gives up cpu)
+change stack pointer registers to stack of new thread, user level therading cannot run on multiple processor
+kernel level threading : maintains thread state internally
+threads share same copy ofcode and data, fast context switching
+process run in their own memory space
+
+
+20)WRite odd even
+#include<iostream>
+#include<thread>
+#include<mutex>
+using namespace std;
+mutex oddevenMu;
+condition_variable condVar;
+int number = 1;
+
+void printEvenOdd(bool isEven, int maxnubmer)
+{
+    unique_lock<mutex> ul(oddevenMu);
+    while (number < maxnubmer)
+    {
+        condVar.wait(ul, [&]() {return number % 2 == isEven;});
+        cout << number++ << " ";
+        condVar.notify_all();
+    }
+
+}
+
+int main(string args[])
+{
+    thread oddThread(printEvenOdd, false, 100);
+    thread evenThread(printEvenOdd, true, 100);
+    oddThread.join();
+    evenThread.join();
+    return 0;
+}
+//funciton pointer void (*fun_ptr)(int) 
+21)synchronisation,mutex,deadlock:-scheduling an be random and preemption can happen anytime
+two threads can be running in parallel
+need a way to make ciritcal section atomic
+need help from operating sytem
+
+what is mutex : mutex=mutual exclusion -resource can only be held by one thread at atime
+
+Deadlock:when all threads hold their resources and dont leave then deadlock occurs
+when can it happen:
+if mutual exclusion is there, hold and wait is tehre , circular wait is there , no premption is there
+
+Semaphore:control access to multiple resources,room with 5 desks in which 5 can enter,internal counter keeps track of resources
+mutex can be thought of as binary semaphores
+
+
+22)mount system concept:-unix all files are organized into directory tree struccutre, root is /, any other can be reached by root, how can you make other drives visible into such structure you mount them eg usb on media/usb
+drives partitions are block devices, you mount those devices in  directory- uses sys_mount
+
+23)virtualisation and hypervisor:-Virtualization is the process of running a virtual instance of a computer system in a layer abstracted from the actual hardware. Most commonly, it refers to running multiple operating systems on a computer system simultaneously
+What is a hypervisor?
+More on virtualization
+
+A hypervisor is a program for creating and running virtual machines. Hypervisors have traditionally been split into two classes: type one, or "bare metal" hypervisors that run guest virtual machines directly on a system's hardware, essentially behaving as an operating system. Type two, or "hosted" hypervisors behave more like traditional applications that can be started and stopped like a normal program. 
+find .(where) -name "text"(what ) , parses then traverses tree
+ 
+ A virtual machine is the emulated equivalent of a computer system that runs on top of another system
+ linux container typical runs single program rather than multiple
+ 
+ 24)osi layer:(networks) Open Systems Interconnection-transfer of data from one to another
+ i)physical layer bits
+ ii)data link layer-mac address
+ iii)network layer- routing ,logical addressing
+ iv)transport layer-breaks connection into segments ,and then provides 
+ 1)connection oriented(tcp) and connectino less(udp)
+ 5)Session layer
+ 6)presentation layer
+ 7)application layer
+ 
+ 25)top command linux:-provides dynamic real time view of the running system,processes memory outage
+ 26)polymorphism:-ability of message to be displayed in different form
+ types compile time and run time:
+ 27)volatile:keyword which tells compiler that value of variable can be chanegd , global variable in multithreaded applications
+ memory mapped peripheral
+ 28)copy constructor
+ point(const class name & obj){x=p2.x,y=p2.y}
+ point pi(10,15)
+ point p2=p1;//copy
+ use of user constructor is deep copy-when pointer and references are also copied
+ The singleton pattern is a design pattern that restricts the instantiation of a class to one object.
+ 
+ 29)scheduling algorithms:
+ 1)fcfs
+ 2)shortest job next(firs)
+ 3)shortest remasining tiem
+ 4)Round robin-
+ 5)priorty scheduling
+ 6)multiple queue-not indepedent algo , makes use of others
+ 
+ 30)spinlocks
+ Because they avoid overhead from operating system process rescheduling or context switching, spinlocks are efficient if threads are likely to be blocked for only short periods.  a spinlock is a lock which causes a thread trying to acquire it to simply wait in a loop ("spin") while repeatedly checking if the lock is available
+ spinlock is good for short periods ,however if thread is holding lock for long time os may interrup it and therad may keep holding lock , while other threads also keep spining
+ 
+ //friend function can access private and protected members of the class
+ //virtual destructor use derived *d = new derived();   
+  base *b = d; 
+  delete b; 
+  deleteing derived class object using base class can have effect of undefined behavior
+  
+  The virtual mechanism works only when we have a base class pointer to a derived class object. In C++, the constructor cannot be virtual, because when a constructor of a class is executed there is no virtual table in the memory, means no virtual pointer defined yet. 
+  
+  acid=atomicity, consistency, isolation, and durability

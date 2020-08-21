@@ -1,0 +1,37 @@
+1) implememnt lru, ---
+2)print element in linked list not present in other,
+3) spiral order,
+ 4)vertical order  
+
+5)merge two/k sorted linked list,union/intersection of ll,, 
+6)intersection point of two linked list, 
+7)sudoku solver, 
+8)longest common prefix match,
+9)Find all the pairs of two integers in an unsorted array that sum up to a given S,
+10)depth of tree(binary and bst)
+11)diameter of binary tree/nary trees,
+12.reverse linked in groups of given size, , 
+13)pair of nodes with given sum in tree
+14)detect and remove loop in linked list, 
+15)array to bst, 
+16) in binary tree find level with max nodes(max width of a tree), 
+17)sparse 2d matrix, make all entries 1 which had 1-done
+18)delete a tree, 
+19)lcs,
+20),armstrong number ,-done
+21) gen prime numbers less than given number, 
+22)infix to postfix
+23)Given a array of number with elements ranging from 0-9, what is the maximum number you can make given number of swaps and you can swap only adjacent numbers. 
+24)Design a stack that supports getMin() in O(1) time and O(1) extra space .
+25)valid bst,
+26)find and delete middle node in linked list,
+27) egg dropping ,  
+28)Given multiple occurrences of characters in a string, output the character followed by its frequency. E.g., if input is ‘aaaaabbbbc’, output should be ‘a4b3c1’(run length encoding)-done hashmap
+29)Reverse the elements in stack-inplace. 
+30)kadane algorithm
+31)Given an unsorted array, find the max j-i such that j > i and a[j] > a[i] in O(N).
+32)merge k sorted arrays,
+33)convert binary tree to mirror tree
+34)dutch national flag,-done
+35)reverse array or string-done 
+
